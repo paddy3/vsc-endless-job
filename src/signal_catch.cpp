@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <ctime>
 
-std::ofstream OUTFILE("signal_cought.txt");
+std::ofstream OUTFILE("signal_caught.txt");
 
 void my_handler(int s){
     time_t t = time(0);   // get time now
