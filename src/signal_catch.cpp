@@ -32,7 +32,7 @@ int main(int argc,char** argv)
    sigemptyset(&sigIntHandler.sa_mask);
    sigIntHandler.sa_flags = 0;
 
-   for (int i=1;i<32;++i)
+   for (int i=1;i<=64;++i)
 	   sigaction(i, &sigIntHandler, NULL);
 
    while(1);
