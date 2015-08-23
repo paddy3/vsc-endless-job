@@ -1,10 +1,23 @@
+#include <iostream>
 #include <signal.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <ctime>
 
 void my_handler(int s){
-           printf("Caught signal %d\n",s);
+    time_t t = time(0);   // get time now
+    struct tm * now = localtime( & t );
+
+           std::cout << "Caught signal " << s;
+           std::cout << " at ";
+           std::cout << (now->tm_year + 1900) << '-'
+        	         << (now->tm_mon + 1) << '-'
+        	         <<  now->tm_mday << ' '
+					 <<  now->tm_hour << ':'
+					 <<  now->tm_min << ':'
+					 <<  now->tm_sec
+        	         << std::endl;
 }
 
 int main(int argc,char** argv)
